@@ -1,6 +1,7 @@
 "use client";
 import { useState, use } from "react";
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 import { getRecordById, getRelatedRecords, browseShelf } from "@/lib/searchEngine";
 import { useFavorites } from "@/contexts/FavoritesContext";
 import CitationModal from "@/components/CitationModal";
@@ -20,7 +21,19 @@ function hashColor(str) {
 
 export default function RecordPage({ params }) {
   const { id } = use(params);
-  const record = getRecordById(id);
+  const searchParams = useSearchParams();
+  const dataParam = searchParams.get("data");
+
+  // Try local first, then fall back to data from query param (Open Library records)
+  let record = getRecordById(id);
+  if (!record && dataParam) {
+    try {
+      record = JSON.parse(dataParam);
+    } catch (e) {
+      record = null;
+    }
+  }
+
   const [activeTab, setActiveTab] = useState("details");
   const [showCitation, setShowCitation] = useState(false);
   const { isFavorite, toggleFavorite } = useFavorites();

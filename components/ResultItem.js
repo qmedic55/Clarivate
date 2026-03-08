@@ -26,12 +26,23 @@ export default function ResultItem({ record, onCite }) {
   const avail = getAvailability(record);
   const favorited = isFavorite(record.id);
 
+  const detailHref = record.source === "openlibrary"
+    ? `/record/${record.id}?data=${encodeURIComponent(JSON.stringify(record))}`
+    : `/record/${record.id}`;
+
   return (
     <div className="result-item">
       <div className="result-item-header">
-        <div>
+        {d.coverUrl && (
+          <img
+            src={d.coverUrl}
+            alt=""
+            style={{ width: 60, height: 80, objectFit: "cover", borderRadius: 4, flexShrink: 0 }}
+          />
+        )}
+        <div style={{ flex: 1 }}>
           <div className="result-title">
-            <Link href={`/record/${record.id}`}>{d.title}</Link>
+            <Link href={detailHref}>{d.title}</Link>
           </div>
           <div className="result-authors">
             {d.creator?.join("; ")}
@@ -70,7 +81,7 @@ export default function ResultItem({ record, onCite }) {
           <button className="action-btn" onClick={() => onCite?.(record)}>
             Cite
           </button>
-          <Link href={`/record/${record.id}`} className="action-btn">
+          <Link href={detailHref} className="action-btn">
             Details
           </Link>
         </div>
