@@ -67,7 +67,7 @@ export default function SearchBar({ initialQuery = "", initialScope = "everythin
             className={`search-mode-btn ${isNlpMode ? "active" : ""}`}
             onClick={() => setIsNlpMode(true)}
           >
-            Natural Language
+            Natural Language/AI
           </button>
         </div>
 
