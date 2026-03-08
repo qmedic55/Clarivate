@@ -1,66 +1,63 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+import Link from "next/link";
+import SearchBar from "@/components/SearchBar";
 
-export default function Home() {
+export default function HomePage() {
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className={styles.intro}>
-          <h1>To get started, edit the page.js file.</h1>
-          <p>
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <>
+      <section className="hero">
+        <h1>Ira&apos;s Library</h1>
+        <p>Discover books, articles, databases, and more across our collections</p>
+        <SearchBar />
+        <div className="search-links">
+          <Link href="/advanced-search">Advanced Search</Link>
+          <a href="#">Browse Databases</a>
+          <a href="#">Research Guides</a>
         </div>
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className={styles.secondary}
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+
+      <div className="quick-links">
+        <Link href="/search?scope=books" className="quick-link-card">
+          <div className="quick-link-icon">&#x1F4DA;</div>
+          <h3>Books &amp; eBooks</h3>
+          <p>Search our physical and electronic book collections</p>
+        </Link>
+        <Link href="/search?scope=articles" className="quick-link-card">
+          <div className="quick-link-icon">&#x1F4C4;</div>
+          <h3>Articles &amp; Papers</h3>
+          <p>Peer-reviewed journals, conference papers, and more</p>
+        </Link>
+        <Link href="/search?scope=electronic" className="quick-link-card">
+          <div className="quick-link-icon">&#x1F4BB;</div>
+          <h3>Online Resources</h3>
+          <p>eBooks, databases, and streaming media</p>
+        </Link>
+        <Link href="/search?scope=course_reserves" className="quick-link-card">
+          <div className="quick-link-icon">&#x1F393;</div>
+          <h3>Course Reserves</h3>
+          <p>Textbooks and materials on reserve for courses</p>
+        </Link>
+      </div>
+
+      <section className="home-stats">
+        <div className="stats-grid">
+          <div className="stat-card">
+            <div className="number">2.4M+</div>
+            <div className="label">Print Volumes</div>
+          </div>
+          <div className="stat-card">
+            <div className="number">850K+</div>
+            <div className="label">eBooks</div>
+          </div>
+          <div className="stat-card">
+            <div className="number">120K+</div>
+            <div className="label">Journal Titles</div>
+          </div>
+          <div className="stat-card">
+            <div className="number">400+</div>
+            <div className="label">Databases</div>
+          </div>
         </div>
-      </main>
-    </div>
+      </section>
+    </>
   );
 }
