@@ -1,0 +1,65 @@
+name: Feature Request
+description: Suggest an improvement or new capability for this project.
+title: "[Feature]: "
+labels: ["enhancement", "needs-review"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Great ideas come from everywhere. Tell us what would make this product better.
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem does this solve?
+      description: Start with the user's pain point. What's frustrating, slow, or missing?
+      placeholder: "As a [type of user], I struggle with..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposed-solution
+    attributes:
+      label: Proposed solution
+      description: How do you think this should work? Be as specific or as high level as you'd like.
+      placeholder: Describe your ideal solution...
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives you've considered
+      description: Have you tried any workarounds? Are there other ways to approach this?
+      placeholder: Other approaches or workarounds...
+    validations:
+      required: false
+
+  - type: dropdown
+    id: impact
+    attributes:
+      label: Expected impact
+      description: How many users would benefit from this?
+      options:
+        - "High: most users would benefit"
+        - "Medium: a significant segment would benefit"
+        - "Low: niche use case but still valuable"
+    validations:
+      required: true
+
+  - type: textarea
+    id: success-metrics
+    attributes:
+      label: How would we know this is successful?
+      description: What metrics or outcomes would indicate this feature is working well?
+      placeholder: e.g. "Reduce time to complete X by 50%", "Increase adoption of Y feature"
+    validations:
+      required: false
+
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional context
+      description: Add any mockups, examples, or references that help illustrate the idea.
+    validations:
+      required: false
