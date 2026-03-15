@@ -1,0 +1,76 @@
+name: User Story
+description: Define a piece of work from the user's perspective with clear acceptance criteria.
+title: "[Story]: "
+labels: ["user-story", "backlog"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        User stories keep us focused on outcomes, not outputs. Write from the user's perspective.
+
+  - type: textarea
+    id: user-story
+    attributes:
+      label: User story
+      description: Use the classic format to frame the need.
+      placeholder: "As a [type of user], I want [goal] so that [benefit]."
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Background & context
+      description: Why does this matter now? Any relevant research, data, or user feedback?
+      placeholder: Share the context behind this story...
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance-criteria
+    attributes:
+      label: Acceptance criteria
+      description: What needs to be true for this story to be considered done?
+      placeholder: |
+        Given [context]
+        When [action]
+        Then [expected result]
+    validations:
+      required: true
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority
+      options:
+        - "P0: Must have (launch blocker)"
+        - "P1: Should have (core experience)"
+        - "P2: Nice to have (improves delight)"
+        - "P3: Future consideration"
+    validations:
+      required: true
+
+  - type: textarea
+    id: design-notes
+    attributes:
+      label: Design & UX notes
+      description: Any mockups, wireframes, or UX considerations?
+    validations:
+      required: false
+
+  - type: textarea
+    id: technical-notes
+    attributes:
+      label: Technical considerations
+      description: Any constraints, dependencies, or architecture notes the team should know about?
+    validations:
+      required: false
+
+  - type: textarea
+    id: out-of-scope
+    attributes:
+      label: What's NOT in scope
+      description: Explicitly call out what this story does NOT include. This prevents scope creep.
+      placeholder: "This story does NOT cover..."
+    validations:
+      required: false
